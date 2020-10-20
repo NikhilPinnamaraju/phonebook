@@ -1,0 +1,165 @@
+<form #f1="ngForm" class="form">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4" class="alert alert-warning">
+                <button  class="btn btn-secondary btn-lg btn-block" type="submit" [routerLink]="['/displayall']">Contact List</button>
+                <button class="btn btn-secondary btn-lg btn-block" [routerLink]="['/home']">Home</button>
+                <button class="btn btn-secondary btn-lg btn-block" [routerLink]="['/add']">Add new Contact</button>
+            </div>
+            <div class="col-md-8 offset-md">
+                <h3>Edit Contact Details</h3>
+                <div class="row form-group">
+                    <div class="col">
+                        <label>Id:</label>
+                        <input type="text" readonly #Id="ngModel" [(ngModel)]="phonebook.Id" name="Id" id="Id" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col">
+                        <label>First Name:</label>
+                        <input type="text" #Firstname="ngModel" required pattern="[aA-zZ]*" maxlength="50" [(ngModel)]="phonebook.Firstname" name="Firstname" id="Firstname" class="form-control"/>
+                        <div *ngIf="Firstname.invalid">
+                            <div *ngIf="Firstname.errors['required']" >
+                                Firstname field required!
+                            </div>
+                            <div *ngIf="Firstname.errors['pattern']">
+                                Must contain only characters
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col">
+                        <label>Last Name:</label>
+                        <input type="text" #Lastname="ngModel" required pattern="[aA-zZ]*" maxlength="50" [(ngModel)]="phonebook.Lastname" name="lastname" id="lastname" class="form-control"/>
+                        <div *ngIf="Lastname.invalid">
+                            <div *ngIf="Lastname.errors['required']" style="color: red;font-style: italic;">
+                                Lastname field required!
+                            </div>
+                            <div *ngIf="Lastname.errors['pattern']" style="color: red;font-style: italic;">
+                                Must contain only characters
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col">
+                        <label>Email Address:</label>
+                        <input type="text" #Emailid="ngModel" required pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$" maxlength="50" [(ngModel)]="phonebook.Emailid" name="email" id="email" class="form-control"/>
+                        <div *ngIf="Emailid.invalid" >
+                            <div *ngIf="Emailid.errors['required'] " style="color: red;font-style: italic;">
+                                Email Id field required!
+                            </div>
+                            <div *ngIf="Emailid.errors['pattern']" style="color: red;font-style: italic;">
+                                Must contain alphabets(uppercase and lowercase), special character, number
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col">
+                        <label>Gender:</label>&nbsp;
+                        <input type="radio" #Gender="ngModel" required [(ngModel)]="phonebook.Gender" name="gender" id="Male" value="Male"/>Male&nbsp;
+                        <input type="radio" #Gender="ngModel" required [(ngModel)]="phonebook.Gender" name="gender" id="Female" value="Female"/>Female<br/>
+                        <div *ngIf="Gender.invalid">
+                            <div *ngIf="Gender.errors['required']" style="color: red;font-style: italic;">
+                                Gender field required!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col">
+                        <label>Date of Birth(DD-MM-YYYY):</label>
+                        <input type="text" #DOB="ngModel" required pattern="^(3[01]|[12][0-9]|0[1-9])-(1[0-2]|0[1-9])-[0-9]{4}$" [(ngModel)]="phonebook.DOB" name="dob" id="dob" class="form-control"/>
+                        <div *ngIf="DOB.invalid"> 
+                            <div *ngIf="DOB.errors['required']" style="color: red;font-style: italic;" >
+                                Date of Birth field required!
+                            </div>
+                            <div *ngIf="DOB.errors['pattern']" style="color: red;font-style: italic;">
+                                Must be in (DD-MM-YYYY) pattern
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col">
+                        <label>Phone Number:</label>
+                        <input type="text" #Phone="ngModel" required number maxlength="10" minlength="10" [(ngModel)]="phonebook.Phone" name="phoneNumber" id="phoneNumber" class="form-control"/>
+                        <div *ngIf="Phone.invalid">
+                            <div *ngIf="Phone.errors['required']" style="color: red;font-style: italic;" >
+                                Phone number field required!
+                            </div>
+                            <div *ngIf="Phone.errors['minlength']" style="color: red;font-style: italic;">
+                                Must be of length 10 numbers
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col">
+                        <label>City:</label>
+                        <input type="text" #City="ngModel" pattern="[aA-zZ]*" maxlength="50" required  [(ngModel)]="phonebook.City" name="city" id="city" class="form-control"/>
+                        <div *ngIf="City.invalid">
+                            <div *ngIf="City.errors['required']" style="color: red;font-style: italic;" >
+                                City field required!
+                            </div>
+                            <div *ngIf="City.errors['pattern']" style="color: red;font-style: italic;">
+                                Must contain only characters
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col">
+                        <label>State:</label>
+                        <input type="text" #State="ngModel" pattern="[aA-zZ]*" maxlength="50" required [(ngModel)]="phonebook.State" name="state" id="state" class="form-control"/>
+                        <div *ngIf="State.invalid">
+                            <div *ngIf="State.errors['required']" style="color: red;font-style: italic;" >
+                                State field required!
+                            </div>
+                            <div *ngIf="State.errors['pattern']" style="color: red;font-style: italic;"> 
+                                Must contain only characters
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col">
+                        <label>Country:</label>
+                        <input type="text" #Country="ngModel" pattern="[aA-zZ]*" maxlength="50" required [(ngModel)]="phonebook.Country" name="country" id="country" class="form-control"/>
+                        <div *ngIf="Country.invalid">
+                            <div *ngIf="Country.errors['required']" style="color: red;font-style: italic;" >
+                                Country field required!
+                            </div>
+                            <div *ngIf="Country.errors['pattern']" style="color: red;font-style: italic;">
+                                Must contain only characters
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col">
+                        <label>Picture URL:</label>
+                        <input type="text" #Picture="ngModel" required [(ngModel)]="phonebook.Picture" name="pictureURL" id="pictureURL" class="form-control"/>
+                        <div *ngIf="Picture.invalid">
+                            <div *ngIf="Picture.errors['required']" style="color: red;font-style: italic;" >
+                                Picture URL field required!
+                            </div>
+                            <div *ngIf="Picture.errors['pattern']" style="color: red;font-style: italic;">
+                                Must contain only characters
+                            </div>
+                        </div>
+                    </div>
+                </div><br/>
+                <div class="row">
+                    <div class="col">
+                        <button type="submit" class="btn btn-info" (click)="editContact()">SAVE</button>
+                        &nbsp;
+                        <button [routerLink]="['/displayall']" class="btn btn-danger">CANCEL</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

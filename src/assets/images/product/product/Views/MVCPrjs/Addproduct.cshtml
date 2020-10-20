@@ -1,0 +1,64 @@
+﻿@model ProductDataAccessLib.tbl_product
+
+@{
+    ViewBag.Title = "Addproduct";
+    var cid = new SelectList((List<string>)ViewData["cid"]);
+    
+}
+
+@using (Html.BeginForm())
+{
+    <h3>Welcome!Add Product here </h3>
+    <table class="table table-bordered">
+        <tr>
+            <th> @Html.Label("select category"):</th>
+            <td>
+                @Html.DropDownListFor(model => model.categoryid, cid)
+            </td>
+        </tr>
+
+        <tr>
+           
+            <th>@Html.LabelFor(model => model.productname):</th>
+            <td>
+                @Html.TextBoxFor(model => model.productname)
+                @Html.ValidationMessageFor(model => model.productname, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <th>@Html.LabelFor(model => model.description):</th>
+            <td>
+                @Html.TextBoxFor(model => model.description)
+                @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <th> @Html.LabelFor(model => model.price):</th>
+            <td>
+                @Html.TextBoxFor(model => model.price)
+                @Html.ValidationMessageFor(model => model.price, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <input type="submit" value="add product" />
+            </th>
+            <td>
+                @if (ViewData["message"] != null)
+                {
+                <span>
+                    @ViewData["message"]
+                </span>
+                }
+            </td>
+        </tr>
+
+
+
+    </table>
+    <p>
+        @Html.ActionLink("view product", "viewproduct")
+    </p>
+   
+}
+

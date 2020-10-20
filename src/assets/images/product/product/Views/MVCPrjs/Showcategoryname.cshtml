@@ -1,0 +1,30 @@
+﻿@model ProductDataAccessLib.tbl_category
+
+@{
+    ViewBag.Title = "Showcategoryname";
+}
+
+<h2>Category Details</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.categoryid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.categoryid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.categoryname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.categoryname)
+        </dd>
+
+    </dl>
+</div>

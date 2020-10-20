@@ -1,0 +1,79 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4" class="alert alert-warning">
+            <button class="btn btn-secondary btn-lg btn-block" type="submit" [routerLink]="['/displayall']">Contact List</button>
+            <button class="btn btn-secondary btn-lg btn-block" [routerLink]="['/home']">Home</button>
+            <button class="btn btn-secondary btn-lg btn-block" [routerLink]="['/add']">Add new Contact</button>
+        </div>
+        <div class="col-md-8 offset-md">
+            <h3>Welcome to PhoneBook App Developed in Angular</h3>
+            <img src="/assets/images/7.jpeg" width="200" height="250" /><br/>
+            <table>
+                <div>
+                <tr>
+                    <th>Id</th>&nbsp;&nbsp;
+                    <td>{{phonebook.Id}}</td>
+                </tr>
+                <tr>
+                    <th>First Name</th>&nbsp;&nbsp;
+                    <td>{{phonebook.Firstname}}</td>
+                </tr>
+                <tr>
+                    <th>Last Name</th>&nbsp;&nbsp;
+                    <td>{{phonebook.Lastname}}</td>
+                </tr>
+                <tr>
+                    <th>Email Address</th>&nbsp;&nbsp;
+                    <td>{{phonebook.Emailid}}</td>
+                </tr>
+                <tr>
+                    <th>Gender</th>&nbsp;&nbsp;
+                    <td>{{phonebook.Gender}}</td>
+                </tr>
+                <tr>
+                    <th>Date of Birth</th>&nbsp;&nbsp;
+                    <td>{{phonebook.DOB}}</td>
+                </tr>
+                <tr>
+                    <th>Phone Number</th>&nbsp;&nbsp;
+                    <td>{{phonebook.Phone}}</td>
+                </tr>
+                <tr>
+                    <th>City</th>&nbsp;&nbsp;
+                    <td>{{phonebook.City}}</td>
+                </tr>
+                <tr>
+                    <th>State</th>&nbsp;&nbsp;
+                    <td>{{phonebook.State}}</td>
+                </tr>
+                <tr>
+                    <th>Country</th>&nbsp;&nbsp;
+                    <td>{{phonebook.Country}}</td>
+                </tr>
+            </div>
+            </table>
+            <!-- <label>Id:</label><br/>
+            <input type="text" [(ngModel)]="phonebook.Id" name="id" id="id" class="form-control"/>
+            <label>First Name:</label>
+            <input type="text" [(ngModel)]="phonebook.Firstname" name="firstname" id="firstname" class="form-control"/>
+            <label>Last Name:</label>
+            <input type="text" [(ngModel)]="phonebook.Lastname" name="lastname" id="lastname" class="form-control"/>
+            <label>Email Address:</label>
+            <input type="text" [(ngModel)]="phonebook.Emailid" name="email" id="email" class="form-control"/>
+            <label>Gender:</label>
+            <input type="text" [(ngModel)]="phonebook.Gender" name="Gender" id="Gender" class="form-control"/>
+            <label>Date of Birth(MM-DD-YYYY):</label>
+            <input type="text" [(ngModel)]="phonebook.DOB" name="dob" id="dob" class="form-control"/>
+            <label>Phone Number:</label>
+            <input type="text" [(ngModel)]="phonebook.Phone" name="phoneNumber" id="phoneNumber" class="form-control"/>
+            <label>City:</label>
+            <input type="text" [(ngModel)]="phonebook.City" name="city" id="city" class="form-control"/>
+            <label>State:</label>
+            <input type="text" [(ngModel)]="phonebook.State" name="state" id="state" class="form-control"/>
+            <label>Country:</label>
+            <input type="text" [(ngModel)]="phonebook.Country" name="country" id="country" class="form-control"/><br/>
+             -->
+            <button type="submit" [routerLink]="['/edit',phonebook.Id]" class="btn btn-info">EDIT</button>
+        </div>
+    </div>
+  </div>

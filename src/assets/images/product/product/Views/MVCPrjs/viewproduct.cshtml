@@ -1,0 +1,57 @@
+﻿@model IEnumerable<ProductDataAccessLib.tbl_product>
+
+@{
+    ViewBag.Title = "viewproduct";
+}
+
+<h3>Your Product Details are here!</h3>
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.productid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.categoryid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.productname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.Label("category name")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.productid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.categoryid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.productname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+       <td>
+           <button type="button"  onclick="location.href='@Url.Action("Showcategoryname","MVCPrjs",new {@id=item.categoryid })'">show category</button>
+       </td>
+    </tr>
+}
+
+</table>
+ 

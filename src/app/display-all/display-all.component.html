@@ -1,0 +1,47 @@
+<form #f1="ngForm" class="form">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4" class="alert alert-warning">
+                <button  class="btn btn-secondary btn-lg btn-block" type="submit">Contact List</button>
+                <button class="btn btn-secondary btn-lg btn-block" [routerLink]="['/home']">Home</button>
+                <button class="btn btn-secondary btn-lg btn-block" [routerLink]="['/add']">Add new Contact</button>
+            </div>
+            <div class="col-md-6 offset-md">
+                <h3>Contact List</h3>
+                <ul>
+                    <div *ngFor="let p of phonebook" >
+                        <table style="width:100%">
+                            <tr>
+                                <td>
+                                    <img src="{{p.Picture}}" width="200" height="250" />
+                                </td>
+                                <td>
+
+                                </td>
+                                <td style="text-align:left">{{p.Firstname}}&nbsp;
+                                    {{p.Lastname}}<br/>
+                                    {{p.Country}}<br/>
+                                    ({{p.Phone}})<br/><br/>
+                                    <button type="button" [routerLink]="['/edit',p.Id]" class="btn btn-info">EDIT</button>&nbsp;
+                                    <button type="submit" (click)="deleteContact(p.Id)" class="btn btn-danger">DELETE</button>
+                                </td>
+                            </tr>
+                        </table>
+                        <!-- <img src="{{p.Picture}}" width="200" height="250" /><br/>
+                            {{p.Firstname}}&nbsp;
+                            {{p.Lastname}}<br/>
+                            {{p.Phone}}<br/> -->
+                            <!-- <button type="button" [routerLink]="['/edit',p.Id]" class="btn btn-info">EDIT</button>&nbsp;
+                            <button type="submit" (click)="deleteContact(p.Id)" class="btn btn-danger">DELETE</button> -->
+                    </div>
+                </ul>
+            </div>
+            <div *ngIf="phonebook==null">
+                <h3>No Contacts to be displayed</h3>
+            </div>
+            <div *ngIf="err">
+                <h3>{{err}}</h3>
+            </div>
+        </div>
+    </div>
+</form>
